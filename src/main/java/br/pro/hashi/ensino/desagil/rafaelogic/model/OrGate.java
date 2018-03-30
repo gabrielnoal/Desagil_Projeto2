@@ -8,11 +8,8 @@ public class OrGate extends Gate {
 
 	@Override
 	public void connect(int pinIndex, Emitter emitter) {
-		nand1.connect(0, emitter);
-		nand1.connect(1, emitter);
-		
-		nand2.connect(0, emitter);
-		nand2.connect(1, emitter);
+		nand1.connect(pinIndex, emitter);
+		nand2.connect(pinIndex, nand1);
 		
 		nandout.connect(0, nand1);
 		nandout.connect(1, nand2);
