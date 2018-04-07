@@ -1,7 +1,11 @@
 package br.pro.hashi.ensino.desagil.rafaelogic.model;
 
 public class NotGate extends Gate {
-	// Importa e cria uma variavel do tipo NandGate chamada nand
+	public NotGate() {
+		super(1, "NOT");
+	}
+
+	// Importa e cria uma variavel do tipo NandGate chanamemada nand
 	private NandGate nand = new NandGate();
 	
 	@Override
