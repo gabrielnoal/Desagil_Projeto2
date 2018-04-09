@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<libraryInfos>
+<libraryInfo home="C:\Users\Gabriel Moura\Documents\Arquivos\Java" version="1.8.0_161">
+<bootpath>
+<entry path="C:\Users\Gabriel Moura\Documents\Arquivos\Java\lib\resources.jar"/>
+<entry path="C:\Users\Gabriel Moura\Documents\Arquivos\Java\lib\rt.jar"/>
+<entry path="C:\Users\Gabriel Moura\Documents\Arquivos\Java\lib\sunrsasign.jar"/>
+<entry path="C:\Users\Gabriel Moura\Documents\Arquivos\Java\lib\jsse.jar"/>
+<entry path="C:\Users\Gabriel Moura\Documents\Arquivos\Java\lib\jce.jar"/>
+<entry path="C:\Users\Gabriel Moura\Documents\Arquivos\Java\lib\charsets.jar"/>
+<entry path="C:\Users\Gabriel Moura\Documents\Arquivos\Java\lib\jfr.jar"/>
+<entry path="C:\Users\Gabriel Moura\Documents\Arquivos\Java\classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="C:\Users\Gabriel Moura\Documents\Arquivos\Java\lib\ext"/>
+<entry path="C:\WINDOWS\Sun\Java\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="C:\Users\Gabriel Moura\Documents\Arquivos\Java\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+</libraryInfos>

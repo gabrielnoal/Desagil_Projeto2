@@ -11,19 +11,17 @@ import javax.swing.JPanel;
 import br.pro.hashi.ensino.desagil.rafaelogic.model.Gate;
 import br.pro.hashi.ensino.desagil.rafaelogic.model.Source;
 
-//A classe JPanel representa um painel da interface gráfica,
+//A classe JPanel representa um painel da interface gr�fica,
 //onde você pode adicionar componentes como menus e botões.
 //Esta em particular representa o subpainel de uma calculadora.
 //A interface ActionListener é explicada melhor mais abaixo.
 public class GateView extends JPanel implements ActionListener {
 
-	// Não é necessário entender esta linha, mas se você estiver curioso
-	// pode ler http://blog.caelum.com.br/entendendo-o-serialversionuid/.
 	private static final long serialVersionUID = 1L;
 
 	private Gate gate;
-	private Source font1 = new Source();
-	private Source font2 = new Source();
+	private Source source1 = new Source();
+	private Source source2 = new Source();
 	
 	private JCheckBox checkPin2;
 	private JCheckBox checkpin2;
@@ -39,8 +37,8 @@ public class GateView extends JPanel implements ActionListener {
 		
 		// A classe JLabel representa um componente que é simplesmente texto fixo.
 		// https://docs.oracle.com/javase/tutorial/uiswing/components/label.html
-		JLabel entrada1Label = new JLabel("Entrada");
-		JLabel saidaLabel = new JLabel("Saida");
+		JLabel input1Label = new JLabel("Entrada");
+		JLabel outLabel = new JLabel("Saida");
 	
 		// Todo painel precisa de um layout, que estabelece como os componentes
 		// são organizados dentro dele. O layout escolhido na linha abaixo é o
@@ -48,14 +46,14 @@ public class GateView extends JPanel implements ActionListener {
 		setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 
 
-		add(entrada1Label);
+		add(input1Label);
 		add(checkPin2);
 		if (gate.getSize()>1) {
 			add(checkpin2);
 		}
 		
 		
-		add(saidaLabel);
+		add(outLabel);
 		add(checkOut);
 		
 		// Estabelece que este subpainel reage ao usuário marcar nos dois
@@ -88,13 +86,13 @@ public class GateView extends JPanel implements ActionListener {
 
 		try {
 			boolpino1 = checkPin2.isSelected();
-			font1.turn(boolpino1);
-			gate.connect(0, font1);
+			source1.turn(boolpino1);
+			gate.connect(0, source1);
 			
 			if (gate.getSize() > 1){
 				boolPin2 = checkpin2.isSelected();
-				font2.turn(boolPin2);
-				gate.connect(1, font2);
+				source2.turn(boolPin2);
+				gate.connect(1, source2);
 			}
 			
 		}
