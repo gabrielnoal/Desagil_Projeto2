@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 import br.pro.hashi.ensino.desagil.rafaelogic.model.Gate;
 import br.pro.hashi.ensino.desagil.rafaelogic.model.Source;
 
-//A classe JPanel representa um painel da interface gr�fica,
+//A classe JPanel representa um painel da interface gráfica,
 //onde você pode adicionar componentes como menus e botões.
 //Esta em particular representa o subpainel de uma calculadora.
 //A interface ActionListener é explicada melhor mais abaixo.
