@@ -21,7 +21,7 @@ public class Portas {
 			@Override
 			public void run() {
 
-				// Constrói o modelo.
+				// Constrói as posrtas e adiciona elas em uma LinkedList.
 				LinkedList<Gate> model = new LinkedList<>();
 				model.add(new NotGate());
 				model.add(new AndGate());
@@ -37,7 +37,7 @@ public class Portas {
 				JFrame frame = new JFrame();
 				frame.setContentPane(view);
 				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.setResizable(true);
+				frame.setResizable(false);
 				frame.pack();
 				frame.setVisible(true);
 			}

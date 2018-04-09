@@ -25,17 +25,17 @@ public class GateView extends JPanel implements ActionListener {
 	private Source font1 = new Source();
 	private Source font2 = new Source();
 	
-	private JCheckBox checkPino1;
-	private JCheckBox checkPino2;
-	private JCheckBox checkSaida;
+	private JCheckBox checkPin2;
+	private JCheckBox checkpin2;
+	private JCheckBox checkOut;
 	
 
 	public GateView(Gate gate) {
 		this.gate = gate;
 		
-		checkPino1 = new JCheckBox();
-		checkPino2 = new JCheckBox();
-		checkSaida = new JCheckBox();
+		checkPin2 = new JCheckBox();
+		checkpin2 = new JCheckBox();
+		checkOut = new JCheckBox();
 		
 		// A classe JLabel representa um componente que é simplesmente texto fixo.
 		// https://docs.oracle.com/javase/tutorial/uiswing/components/label.html
@@ -49,25 +49,25 @@ public class GateView extends JPanel implements ActionListener {
 
 
 		add(entrada1Label);
-		add(checkPino1);
+		add(checkPin2);
 		if (gate.getSize()>1) {
-			add(checkPino2);
+			add(checkpin2);
 		}
 		
 		
 		add(saidaLabel);
-		add(checkSaida);
+		add(checkOut);
 		
 		// Estabelece que este subpainel reage ao usuário marcar nos dois
 		// primeiros checkbox. Isso só pode ser feito se este subpainel for
 		// do tipo ActionListener, por isso ele implementa essa interface.
-		checkPino1.addActionListener(this);
-		checkPino2.addActionListener(this);
+		checkPin2.addActionListener(this);
+		checkpin2.addActionListener(this);
 	
 		// Estabelece que o terceiro checkbox está desativado, não é clicavel.
-		checkSaida.setEnabled(false);
+		checkOut.setEnabled(false);
 		if (gate.toString() == "NOT" || gate.toString() == "NAND") {
-			checkSaida.setSelected(true);
+			checkOut.setSelected(true);
 		}
 		
 	
@@ -82,18 +82,18 @@ public class GateView extends JPanel implements ActionListener {
 
 	private void update() {
 		boolean boolpino1;
-		boolean boolpino2;
-		boolean boolsaida;
+		boolean boolPin2;
+		boolean boolOut;
 		
 
 		try {
-			boolpino1 = checkPino1.isSelected();
+			boolpino1 = checkPin2.isSelected();
 			font1.turn(boolpino1);
 			gate.connect(0, font1);
 			
 			if (gate.getSize() > 1){
-				boolpino2 = checkPino2.isSelected();
-				font2.turn(boolpino2);
+				boolPin2 = checkpin2.isSelected();
+				font2.turn(boolPin2);
 				gate.connect(1, font2);
 			}
 			
@@ -103,8 +103,8 @@ public class GateView extends JPanel implements ActionListener {
 			return;
 		}
 
-		boolsaida = gate.read();
-		checkSaida.setSelected(boolsaida);		
+		boolOut = gate.read();
+		checkOut.setSelected(boolOut);		
 	}
 
 
