@@ -15,7 +15,7 @@ import br.pro.hashi.ensino.desagil.rafaelogic.model.Source;
 //onde você pode adicionar componentes como menus e botões.
 //Esta em particular representa o subpainel de uma calculadora.
 //A interface ActionListener é explicada melhor mais abaixo.
-public class GateView extends JPanel implements ActionListener {
+public class GateView extends SimplePanel implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
 
@@ -23,16 +23,20 @@ public class GateView extends JPanel implements ActionListener {
 	private Source source1 = new Source();
 	private Source source2 = new Source();
 	
+	private JCheckBox checkPin1;
 	private JCheckBox checkPin2;
-	private JCheckBox checkpin2;
 	private JCheckBox checkOut;
 	
+//	private Image image;
 
 	public GateView(Gate gate) {
+		
+		super(245, 300);
+		
 		this.gate = gate;
 		
+		checkPin1 = new JCheckBox();
 		checkPin2 = new JCheckBox();
-		checkpin2 = new JCheckBox();
 		checkOut = new JCheckBox();
 		
 		// A classe JLabel representa um componente que é simplesmente texto fixo.
@@ -47,9 +51,9 @@ public class GateView extends JPanel implements ActionListener {
 
 
 		add(input1Label);
-		add(checkPin2);
+		add(checkPin1);
 		if (gate.getSize()>1) {
-			add(checkpin2);
+			add(checkPin2);
 		}
 		
 		
@@ -59,8 +63,8 @@ public class GateView extends JPanel implements ActionListener {
 		// Estabelece que este subpainel reage ao usuário marcar nos dois
 		// primeiros checkbox. Isso só pode ser feito se este subpainel for
 		// do tipo ActionListener, por isso ele implementa essa interface.
+		checkPin1.addActionListener(this);
 		checkPin2.addActionListener(this);
-		checkpin2.addActionListener(this);
 	
 		// Estabelece que o terceiro checkbox está desativado, não é clicavel.
 		checkOut.setEnabled(false);
@@ -85,12 +89,12 @@ public class GateView extends JPanel implements ActionListener {
 		
 
 		try {
-			boolpino1 = checkPin2.isSelected();
+			boolpino1 = checkPin1.isSelected();
 			source1.turn(boolpino1);
 			gate.connect(0, source1);
 			
 			if (gate.getSize() > 1){
-				boolPin2 = checkpin2.isSelected();
+				boolPin2 = checkPin2.isSelected();
 				source2.turn(boolPin2);
 				gate.connect(1, source2);
 			}
