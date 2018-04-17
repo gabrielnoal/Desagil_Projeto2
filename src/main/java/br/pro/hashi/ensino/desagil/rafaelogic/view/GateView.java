@@ -19,24 +19,26 @@ import javax.swing.JCheckBox;
 import br.pro.hashi.ensino.desagil.rafaelogic.model.Gate;
 import br.pro.hashi.ensino.desagil.rafaelogic.model.Source;
 
-//A classe JPanel representa um painel da interface gr√°fica,
-//onde voc√™ pode adicionar componentes como menus e bot√µes.
-//Esta em particular representa o subpainel de uma calculadora.
-//A interface ActionListener √© explicada melhor mais abaixo.
+//A classe JPanel representa um painel da interface gr·fica,
+//onde vocÍ pode adicionar componentes como menus e botıes.
+
 public class GateView extends SimplePanel implements ActionListener, MouseListener {
 
 	private static final long serialVersionUID = 1L;
 
 	private Gate gate;
 	
+	// CheckBoxs (Quadradinhos com check)
 	private JCheckBox checkPin1;
 	private JCheckBox checkPin2;
 	
+	// Cores e Imagens
 	private Color color;
 	private Image image;
 
 	public GateView(Gate gate) {
 		
+		// Tamanho da Janela
 		super(480, 400);
 		
 		this.gate = gate;
@@ -49,45 +51,42 @@ public class GateView extends SimplePanel implements ActionListener, MouseListen
 		JLabel input1Label = new JLabel("Entrada");
 	
 		
+		// Portas com uma entrada
 		if (gate.getSize()==1) {
 			add(input1Label, 0, 0, 60, 30);
 			add(checkPin1, 0, 80, 30, 30);
 		}
 		
+		// Portas com duas entradas
 		if (gate.getSize()==2) {
 			add(input1Label, 0, 0, 60, 30);
 			add(checkPin1, 0, 50, 30, 30);
 			add(checkPin2, 0, 120, 30, 30);
 		}
 		
-//		add(outLabel, 10, 10, 10, 10);
-//		add(checkOut, 10, 10, 10, 10);
-		
+
 		// Estabelece que este subpainel reage ao usu√°rio marcar nos dois
 		// primeiros checkbox. Isso s√≥ pode ser feito se este subpainel for
 		// do tipo ActionListener, por isso ele implementa essa interface.
 		checkPin1.addActionListener(this);
 		checkPin2.addActionListener(this);
 	
-		// Estabelece que o terceiro checkbox est√° desativado, n√£o √© clicavel.
-//		checkOut.setEnabled(false);
-//		if (gate.toString() == "NOT" || gate.toString() == "NAND") {
-//			checkOut.setSelected(true);
-		
 	
-		// N√£o podemos esquecer de chamar update na inicializa√ß√£o,
+		// Chamando update na inicializaÁ„o
 		// caso contr√°rio a interface s√≥ ficar√° consistente depois
 		// da primeira intera√ß√£o do usu√°rio com os campos de texto.
-		// A defini√ß√£o exata do m√©todo update √© dada logo abaixo.
 		
 		update();
 		
+		// Abrindo imagens
 		String path = "/" + gate.toString() + ".png";
 		URL url = getClass().getResource(path);
 		image = new ImageIcon(url).getImage();
 		
 		addMouseListener(this);				
 	}
+	
+		// Update - AtualizaÁ„o da janela
 
 	private void update() {
 		
@@ -126,14 +125,17 @@ public class GateView extends SimplePanel implements ActionListener, MouseListen
 			System.out.println(exception);
 			return;
 		}
-
+		
+		// SaÌda
+		
 		boolOut = gate.read();
 		
+		//Se È 1 - Veremlho
 		if (boolOut == true){
 			color = Color.RED;
 			repaint();
 		}
-		
+		// Se È 0 - Preto
 		if (boolOut == false){
 			color = Color.BLACK;
 			repaint();
@@ -155,7 +157,7 @@ public class GateView extends SimplePanel implements ActionListener, MouseListen
 		int y = event.getY();
 		double distancia = Math.sqrt(Math.pow(212-x, 2)+Math.pow(105-y, 2));
 
-		// Se o clique foi dentro do ret‚ngulo colorido...
+		// Se o clique foi dentro do cÌrculo vermelho...
 		if(distancia <= 12 && color == Color.RED) {
 
 			// abrir o seletor de cor
@@ -202,7 +204,7 @@ public class GateView extends SimplePanel implements ActionListener, MouseListen
 		// O ˙ltimo par‚metro pode ser sempre null.
 		g.drawImage(image, 40, 35, 165, 145, null);
 
-		// Desenha um OVAL cheio.
+		// Desenha um CÌrculo Oval cheio.
 		g.setColor(color);
 		g.fillOval(200, 93, 24, 24);
 
