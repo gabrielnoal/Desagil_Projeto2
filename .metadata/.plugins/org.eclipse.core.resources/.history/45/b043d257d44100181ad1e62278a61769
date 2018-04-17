@@ -51,13 +51,13 @@ public class GateView extends SimplePanel implements ActionListener, MouseListen
 		
 		if (gate.getSize()==1) {
 			add(input1Label, 0, 0, 60, 30);
-			add(checkPin1, 0, 80, 30, 30);
+			add(checkPin1, 0, 40, 30, 30);
 		}
 		
 		if (gate.getSize()==2) {
 			add(input1Label, 0, 0, 60, 30);
-			add(checkPin1, 0, 50, 30, 30);
-			add(checkPin2, 0, 120, 30, 30);
+			add(checkPin1, 0, 40, 30, 30);
+			add(checkPin2, 0, 100, 30, 30);
 		}
 		
 //		add(outLabel, 10, 10, 10, 10);
