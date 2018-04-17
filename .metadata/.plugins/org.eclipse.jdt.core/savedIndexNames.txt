@@ -1,2 +1,0 @@
-INDEX VERSION 1.129+C:\Users\Gabriel Moura\Documents\Insper\3 Semestre\Desenvolvimento Colaborativo Ágil\Meu Repositorio\Desagil_Projeto2\.metadata\.plugins\org.eclipse.jdt.core
-3245801801.index
