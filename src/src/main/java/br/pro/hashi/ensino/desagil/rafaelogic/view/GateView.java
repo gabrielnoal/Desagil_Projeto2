@@ -82,7 +82,6 @@ public class GateView extends SimplePanel implements ActionListener, MouseListen
 		
 		update();
 		
-		
 		String path = "/" + gate.toString() + ".png";
 		URL url = getClass().getResource(path);
 		image = new ImageIcon(url).getImage();
